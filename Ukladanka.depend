@@ -3641,7 +3641,7 @@
 1654449504 c:\users\mkorn\desktop\wxwidgets-3.0.5\include\wx\univ\theme.h
 	"wx/string.h"
 
-1673701673 c:\users\mkorn\desktop\studia\studiasemestr3\projektprogramowanie\projekt\ukladanka\ukladankamain.h
+1673711307 c:\users\mkorn\desktop\studia\studiasemestr3\projektprogramowanie\projekt\ukladanka\ukladankamain.h
 	<map>
 	"ukladanka.h"
 	<wx/bmpbuttn.h>
@@ -3804,7 +3804,7 @@
 1654449527 c:\users\mkorn\desktop\wxwidgets-3.0.5\include\wx\os2\stattext.h
 	"wx/control.h"
 
-1673701935 source:c:\users\mkorn\desktop\studia\studiasemestr3\projektprogramowanie\projekt\ukladanka\ukladankamain.cpp
+1673711539 source:c:\users\mkorn\desktop\studia\studiasemestr3\projektprogramowanie\projekt\ukladanka\ukladankamain.cpp
 	"UkladankaMain.h"
 	<wx/msgdlg.h>
 	<ukladanka.h>

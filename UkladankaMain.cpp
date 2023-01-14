@@ -124,7 +124,7 @@ UkladankaDialog::UkladankaDialog(wxWindow* parent,wxWindowID id)
     BoxSizer1->Add(StaticText2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Button1 = new wxButton(this, ID_BUTTON1, _("Uloz obrazek"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
     BoxSizer1->Add(Button1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    Button2 = new wxButton(this, ID_BUTTON2, _("Nowe gra"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
+    Button2 = new wxButton(this, ID_BUTTON2, _("Nowa gra"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
     BoxSizer1->Add(Button2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     FlexGridSizer1->Add(BoxSizer1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SetSizer(FlexGridSizer1);
@@ -134,6 +134,8 @@ UkladankaDialog::UkladankaDialog(wxWindow* parent,wxWindowID id)
     FlexGridSizer1->SetSizeHints(this);
 
     Connect(ID_BITMAPBUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&UkladankaDialog::OnBitmapButton1Click);
+    Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&UkladankaDialog::OnButton1Click);
+    Connect(ID_BUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&UkladankaDialog::OnButton2Click);
     Connect(ID_TIMER1,wxEVT_TIMER,(wxObjectEventFunction)&UkladankaDialog::OnTimer1Trigger);
     //*)
 
@@ -146,7 +148,6 @@ UkladankaDialog::UkladankaDialog(wxWindow* parent,wxWindowID id)
 #define pp(nr) plansza[nr] = BitmapButton ## nr; obrazki[nr] = wxBitmap(wxImage(_T("grafiki\\o")+ wxString::Format(wxT("%i"),nr) +_T(".jpg")));
     pp(0) pp(1) pp(2) pp(3) pp(4) pp(5) pp(6) pp(7) pp(8) pp(9) pp(10) pp(11) pp(12) pp(13) pp(14) pp(15)
 #undef pp
-
     obrazki[16] = wxBitmap(wxImage(_T("grafiki\\o16.jpg")));
 
     inicjalizujPlansze();
@@ -195,6 +196,26 @@ void UkladankaDialog::OnBitmapButton1Click(wxCommandEvent& event)
         }
     }
 
+
+}
+
+void UkladankaDialog::OnButton1Click(wxCommandEvent& event)
+{
+    //uklad.losowanie();
+    //inicjalizujPlansze();
+    //ir=0;
+
+
+
+    for(int i=0; i<16; i++)
+    {
+        przelicz[plansza[i]->GetId()] = i;
+        plansza[i]->SetBitmap(obrazki[i]);
+        Connect(plansza[i]->GetId(),wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&UkladankaDialog::OnBitmapButton1Click);
+    }
+
+    plansza[uklad.pusty]-> SetBitmap(obrazki[16]);
+    ir=0;
 
 }
 

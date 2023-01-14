@@ -38,6 +38,7 @@ class UkladankaDialog: public wxDialog
         void OnAbout(wxCommandEvent& event);
         void OnTimer1Trigger(wxTimerEvent& event);
         void OnBitmapButton1Click(wxCommandEvent& event);
+        void OnButton1Click(wxCommandEvent& event);
         void OnButton2Click(wxCommandEvent& event);
         void inicjalizujPlansze();
         //*)
